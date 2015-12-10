@@ -1,0 +1,30 @@
+<div class="container">
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Profile Picture:</strong>
+  <%= image_tag @profile.profile_pic, class:"img-circle", alt:"Profile Picture", width:"250", height:"250" %>
+</p>
+
+<p>
+  <strong>First Name:</strong>
+  <%= current_user.first_name %>
+</p>
+
+<p>
+  <strong>Last Name:</strong>
+  <%= current_user.last_name %>
+</p>
+
+<p>
+  <strong>Home Address:</strong>
+  <%= @profile.home_address %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @profile.description %>
+</p>
+
+<%= link_to 'Edit', edit_profile_path(@profile) %>
+</div>

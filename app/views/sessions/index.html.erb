@@ -1,0 +1,42 @@
+<% provide(:title, "Log in") %>
+
+<div class="container">
+
+	<div class="col-sm-push-4 col-sm-4">
+		<% if flash.any? %>
+		<div class="alert alert-danger">
+			<% flash.each do |name, msg| %>
+			<span><%= msg %></span>
+			<% end %>
+		</div>
+		<% end %>
+		<h3 class="text-center">Log in</h3>
+		<%= form_for(:session, url: login_path, class:'form-horizontal') do |f| %>
+
+		<div class="form-group">
+			<%= f.label :name, class: 'control-label' %>
+			<%= f.text_field :name, class: 'form-control' %>
+		</div>
+
+		<div class="form-group">
+			<%= f.label :password, class: ' control-label' %>
+			<%= f.password_field :password, class: 'form-control' %>
+		</div>
+
+		<div class="form-group">
+			<div class="checkbox">
+				<input type="checkbox" name="rememberme" id="rememberme">
+				Remember Me
+			</div>
+		</div>
+
+		<div>
+			<%= f.submit "Log in", class: "btn btn-primary" %>
+		</div>
+		<% end %>
+		<br>
+		<p>
+			New user? <%= link_to "Sign up now!", signup_path %>
+		</p>
+	</div>
+</div>

@@ -1,0 +1,23 @@
+<div class="container">
+	<h3 class="page-header">View Article</h3>
+	<%= link_to "New Article", new_article_path %>
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h3 class="panel-title"><%= @article.title %></h3>
+		</div>
+		<div class="panel-body">
+			<p>
+				<%= @article.text %>
+			</p>
+		</div>
+	</div>
+
+  <h2>Comments</h2>
+  <%= render @article.comments %>
+
+  <h2>Add a comment:</h2>
+  <%= render 'comments/form' %>
+
+	<span>&laquo;</span><%= link_to "Back to Articles", articles_path %>
+
+</div>
