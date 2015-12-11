@@ -35,10 +35,12 @@ class ProfilesController < ApplicationController
       if @profile.save
         current_user.update_attributes({first_name: params[:first_name], last_name: params[:last_name]})
         profile_picture = params[:profile][:profile_pic]
-        File.open(Rails.root.join('public', 'uploads', profile_picture.original_filename), 'wb') do |file|
-          file.write(profile_picture.read)
+        if profile_picture.present?
+          File.open(Rails.root.join('public', 'uploads', profile_picture.original_filename), 'wb') do |file|
+            file.write(profile_picture.read)
+          end
+          @profile.update_attribute(:profile_pic, '/uploads/' + profile_picture.original_filename)
         end
-        @profile.update_attribute(:profile_pic, '/uploads/' + profile_picture.original_filename)
         format.html { redirect_to @profile, notice: 'Profile was successfully created.' }
         format.json { render :show, status: :created, location: @profile }
 

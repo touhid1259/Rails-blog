@@ -1,4 +1,4 @@
-<%= form_for(@profile, html: {multipart: true }) do |f| %>
+<%= form_for(@profile, html: {multipart: true, class: 'profile-form' }) do |f| %>
   <% if @profile.errors.any? %>
         <div id="error_explanation" xmlns="http://www.w3.org/1999/html">
       <h2><%= pluralize(@profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
@@ -11,28 +11,28 @@
     </div>
   <% end %>
 
-  <div class="field form-group">
+  <div class="form-group">
     <%= f.label :profile_pic %><br>
     <%= image_tag @profile.profile_pic, class:"img-circle", alt:"Profile Picture", width:"250", height:"250" if @profile.present? && @profile.profile_pic.present? %><br>
     <%= f.file_field :profile_pic %>
   </div>
 
-  <div class="field form-group">
-    <strong>First Name:</strong><br>
+  <div class="form-group">
+    <strong>First Name</strong><br>
     <%= text_field_tag :first_name, params[:first_name] ? params[:first_name] : current_user.first_name, class: 'form-control' %>
   </div>
 
-  <div class="field form-group">
-    <strong>Last Name:</strong><br>
+  <div class="form-group">
+    <strong>Last Name</strong><br>
     <%= text_field_tag :last_name, params[:last_name] ? params[:last_name] : current_user.last_name, class: 'form-control' %>
   </div>
 
-  <div class="field form-group">
+  <div class="form-group">
     <%= f.label :home_address %><br>
     <%= f.text_field :home_address, class: 'form-control' %>
   </div>
 
-  <div class="field form-group">
+  <div class="form-group">
     <%= f.label :description %><br>
     <%= f.text_area :description, class: 'form-control' %>
   </div>

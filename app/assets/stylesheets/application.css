@@ -13,3 +13,29 @@
  *= require_tree .
  *= require_self
  */
+
+
+.container h1.center-text {
+    text-align: center;
+}
+
+.container p.about-us {
+    text-align: center;
+}
+
+.container div.hash-logo {
+    width: 200px;
+    margin: 0 auto;
+}
+
+.container .please-confirm {
+    text-align: center;
+    font-size: 20px;
+    line-height: 35px;
+    margin-top: 90px;
+}
+
+.container .profile-form {
+    width: 500px;
+    margin: 0 auto;
+}
