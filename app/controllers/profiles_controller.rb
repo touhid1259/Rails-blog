@@ -6,6 +6,7 @@ class ProfilesController < ApplicationController
   # GET /profiles
   # GET /profiles.json
   def index
+    redirect_to articles_path, notice: 'Please provide valid URL'
     @profiles = Profile.all
   end
 
